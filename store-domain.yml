@@ -16,7 +16,7 @@ eureka:
 spring:
     datasource:
         driver-class-name: org.postgresql.Driver
-        password: 'a'
+        password: a
         url: jdbc:postgresql://localhost:5432/company
         username: postgres
     jpa:
@@ -26,6 +26,11 @@ spring:
             hibernate:
                 temp:
                     use_jdbc_metadata_defaults: false
+                envers:
+                    audit_table_prefix: LOG_
+                    audit_table_suffix:
+                    revision_field_name: LOG_ID
+                    revision_type_field_name: LOG_TYPE
                     
 spring:
     liquibase:
