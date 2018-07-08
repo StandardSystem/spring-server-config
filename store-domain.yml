@@ -17,8 +17,21 @@ spring:
     datasource:
         driver-class-name: org.postgresql.Driver
         password: 'a'
-        url: jdbc:postgresql://localhost:5432/company
+        platform: postgres
+        url: jdbc:postgresql://localhost:5432/company?verifyServerCertificate=false&useSSL=false&requireSSL=false
         username: postgres
+    jpa:
+        database-platform: org.hibernate.dialect.PostgreSQL9Dialect
+        show-sql: false
+        properties:
+            hibernate:
+                temp:
+                    use_jdbc_metadata_defaults: false
+                envers:
+                    audit_table_prefix: LOG_
+                    audit_table_suffix:
+                    revision_field_name: LOG_ID
+                    revision_type_field_name: LOG_TYPE
 
                     
 spring:
