@@ -12,6 +12,13 @@ eureka:
       defaultZone: http://${eureka.instance.hostname}:${eureka.instance.port}/eureka/
   server:
     wait-time-in-ms-when-sync-empty: 3000
+    
+
+                    
+spring:
+    liquibase:
+        enabled: true
+        change-log: classpath:/data/changelog/db.changelog-master.xml
 
 authserver:
   hostname: http://localhost:9092
