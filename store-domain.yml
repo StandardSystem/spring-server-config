@@ -12,28 +12,21 @@ eureka:
       defaultZone: http://${eureka.instance.hostname}:${eureka.instance.port}/eureka/
   server:
     wait-time-in-ms-when-sync-empty: 3000
-    
+
 spring:
     datasource:
-        driver-class-name: org.postgresql.Driver
-        password: 'a'
-        platform: postgres
-        url: jdbc:postgresql://localhost/company?verifyServerCertificate=false&useSSL=false&requireSSL=false
-        username: postgres
+        driver-class-name: com.mysql.jdbc.Driver
+        password: '1234'
+        platform: mysql
+        url: jdbc:mysql://localhost/delivery-order?verifyServerCertificate=false&useSSL=false&requireSSL=false
+        username: root
     jpa:
-        database-platform: org.hibernate.dialect.PostgreSQL9Dialect
-        show-sql: false
-        properties:
-            hibernate:
-                temp:
-                    use_jdbc_metadata_defaults: false
-                envers:
-                    audit_table_prefix: LOG_
-                    audit_table_suffix:
-                    revision_field_name: LOG_ID
-                    revision_type_field_name: LOG_TYPE
+        database-platform: org.hibernate.dialect.MySQLDialect
+        generate-ddl: false
+        hibernate:
+            ddl-auto: create
+        show-sql: true
 
-                    
 spring:
     liquibase:
         enabled: true
