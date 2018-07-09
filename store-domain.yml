@@ -35,11 +35,3 @@ spring:
     liquibase:
         enabled: true
         change-log: classpath:/data/changelog/db.changelog-master.xml
-
-authserver:
-  hostname: http://localhost:9092
-security:
-  oauth2:
-    resource:
-      userInfoUri: ${authserver.hostname}/user
-      id: domains
