@@ -45,19 +45,3 @@ spring:
     liquibase:
         enabled: true
         change-log: classpath:/data/changelog/db.changelog-master.xml
-
-spring:
-    datasource:
-        data: classpath:/sql/data.sql
-        driver-class-name: com.mysql.jdbc.Driver
-        password: '1234'
-        platform: mysql
-        schema: classpath:/sql/schema.sql
-        url: jdbc:mysql://localhost/oauth?verifyServerCertificate=false&useSSL=false&requireSSL=false
-        username: root
-    jpa:
-        database-platform: org.hibernate.dialect.MySQLDialect
-        generate-ddl: false
-        hibernate:
-            ddl-auto: none
-        show-sql: false
