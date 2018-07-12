@@ -3,8 +3,8 @@ server:
 
 eureka:
   instance:
-    hostname: localhost
-    port: 9091
+    hostname: ${registry.host:localhost}
+    port: ${registry.port:9091}
   client:
     registerWithEureka: true
     fetchRegistry: false
@@ -35,3 +35,14 @@ spring:
     liquibase:
         enabled: true
         change-log: classpath:/data/changelog/db.changelog-master.xml
+        
+management:
+  security:
+    enabled: false
+    
+logging:
+  level:
+    com:
+      netflix:
+        eureka: OFF
+        discovery: OFF
