@@ -34,3 +34,9 @@ spring:
         enabled: true
         change-log: classpath:/data/changelog/db.changelog-master.xml
 
+logging:
+  level:
+    com:
+      netflix:
+        eureka: OFF
+        discovery: OFF
