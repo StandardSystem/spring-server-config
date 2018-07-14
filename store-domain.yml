@@ -8,10 +8,6 @@ eureka:
   client:
     serviceUrl:
       defaultZone: http://${eureka.instance.hostname}:${eureka.instance.port}/eureka/
-  boot:
-    admin:
-      discovery:
-        ignored-services: ${app.name:server-admin}
 
 spring:
     datasource:
