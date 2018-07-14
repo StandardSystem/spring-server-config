@@ -4,11 +4,11 @@ server:
 eureka:
   instance:
     hostname: ${registry.host:localhost}
-    port: ${registry.port:9091}
+    port: ${registry.port:9090}
   client:
-    registerWithEureka: false
-    fetchRegistry: false
     serviceUrl:
       defaultZone: http://${eureka.instance.hostname}:${eureka.instance.port}/eureka/
-  server:
-    wait-time-in-ms-when-sync-empty: 3000
+  boot:
+    admin:
+      discovery:
+        ignored-services: ${app.name:server-admin}
