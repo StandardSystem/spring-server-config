@@ -14,7 +14,7 @@ zuul:
     routes:
         account:
             path: /domain/**
-            serviceId: domain-service
+            serviceId: store-domain
         customer:
             path: /locale/**
-            serviceId: locale-service
+            serviceId: store-locale
