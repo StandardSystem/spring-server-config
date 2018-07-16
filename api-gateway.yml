@@ -1,5 +1,13 @@
 server:
   port: ${app.port:8080}
+  
+endpoints:
+  restart:
+    enabled: true
+  shutdown:
+    enabled: true
+  health:
+    sensitive: false
 
 eureka:
   instance:
