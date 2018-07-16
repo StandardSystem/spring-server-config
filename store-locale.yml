@@ -1,0 +1,35 @@
+server:
+  port: ${app.port:9101}
+
+eureka:
+  instance:
+    hostname: ${registry.host:localhost}
+    port: ${registry.port:9090}
+  client:
+    serviceUrl:
+      defaultZone: http://${eureka.instance.hostname}:${eureka.instance.port}/eureka/
+    healthcheck:
+      enabled: true
+
+spring:
+    datasource:
+        driver-class-name: org.postgresql.Driver
+        password: 'a'
+        platform: postgres
+        url: jdbc:postgresql://${database.host:localhost}:${database.port:5432}/locale?verifyServerCertificate=false&useSSL=false&requireSSL=false
+        username: postgres
+    jpa:
+        database-platform: org.hibernate.dialect.PostgreSQL9Dialect
+        show-sql: false
+        properties:
+            hibernate:
+                temp:
+                    use_jdbc_metadata_defaults: false
+                envers:
+                    audit_table_prefix: LOG_
+                    audit_table_suffix:
+                    revision_field_name: LOG_ID
+                    revision_type_field_name: LOG_TYPE
+    liquibase:
+        enabled: true
+        change-log: classpath:/data/changelog/db.changelog-master.xml
