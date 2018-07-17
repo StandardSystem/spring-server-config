@@ -3,15 +3,13 @@ server:
 
 eureka:
   instance:
-    hostname: localhost
-    port: 9091
+    hostname: ${app.host:localhost}
+    port: ${server.port}
   client:
-    registerWithEureka: true
-    fetchRegistry: false
     serviceUrl:
-      defaultZone: http://${eureka.instance.hostname}:${eureka.instance.port}/eureka/
-  server:
-    wait-time-in-ms-when-sync-empty: 3000
+      defaultZone: http://${registry.host:localhost}:${registry.port:9090}/eureka/
+    healthcheck:
+      enabled: true
 
 spring:
     datasource:
