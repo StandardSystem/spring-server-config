@@ -3,11 +3,13 @@ server:
 
 eureka:
   instance:
-    hostname: ${registry.host:localhost}
-    port: ${registry.port:9090}
+    hostname: ${app.host:localhost}
+    port: ${server.port}
   client:
     serviceUrl:
-      defaultZone: http://${eureka.instance.hostname}:${eureka.instance.port}/eureka/
+      defaultZone: http://${registry.host:localhost}:${registry.port:9090}/eureka/
+    healthcheck:
+      enabled: true
       
 endpoints:
   restart:
