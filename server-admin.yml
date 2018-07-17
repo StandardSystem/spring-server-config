@@ -7,7 +7,7 @@ eureka:
     port: ${registry.port:9090}
   client:
     serviceUrl:
-      defaultZone: http://${app.host}:${server.port}/eureka/
+      defaultZone: http://${app.host:localhost}:${server.port}/eureka/
   boot:
     admin:
       discovery:
