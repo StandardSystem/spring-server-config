@@ -11,4 +11,4 @@ eureka:
   boot:
     admin:
       discovery:
-        ignored-services: ${app.name:server-admin}
+        ignored-services: ${app.name:store-server-admin}
